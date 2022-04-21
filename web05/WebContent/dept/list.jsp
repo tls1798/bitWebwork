@@ -30,7 +30,7 @@
 		MongoClient client = null;
 		MongoDatabase db = null;
 		MongoCollection<Document> coll = null;
-		int p =0;
+		int p=1;
 		try{
 		p = Integer.parseInt(request.getParameter("p"));
 		} catch(NumberFormatException e){}
@@ -38,7 +38,7 @@
 			client = new MongoClient();
 			db = client.getDatabase("testDB");
 			coll = db.getCollection("dept02");
-
+			
 			FindIterable<Document> ite = coll.find().skip(5*(p-1)).limit(5);
 			MongoCursor<Document> cursor = ite.iterator();
 			while (cursor.hasNext()) {
