@@ -25,14 +25,19 @@
 		//Document filter=new Document();
 		//filter.append("_id",deptno);
 		// templateMethod 디자인 패턴
-		MongoCursor<Document> cur = coll.find(filter).iterator();
-		if(cur.hasNext()){
-			Document doc = cur.next();
-			deptno = doc.getInteger("_id");
-			dname = doc.getString("dname");
-			loc = doc.getString("loc");
-		}
+		//MongoCursor<Document> cur = coll.find(filter).iterator();
+		//if(cur.hasNext()){
+		//	Document doc = cur.next();
+		//	deptno = doc.getInteger("_id");
+		//	dname = doc.getString("dname");
+		//	loc = doc.getString("loc");
+		//}
 		
+		Document a = coll.find(filter).first();
+		deptno = a.getInteger("_id");
+		dname = a.getString("dname");
+		loc = a.getString("loc");
+	
 	} finally {
 		client.close();
 	}

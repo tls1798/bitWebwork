@@ -8,24 +8,24 @@
 </head>
 <body>
 <%
-request.setCharacterEncoding("utf-8");
-String param1=request.getParameter("deptno");
-String param2=request.getParameter("dname");
-String param3=request.getParameter("loc");
+	request.setCharacterEncoding("utf-8");
+	String param1 = request.getParameter("deptno");
+	String param2 = request.getParameter("dname");
+	String param3 = request.getParameter("loc");
 
-int deptno = Integer.parseInt(param1);
-String dname=param2.trim();
-String loc=param3.trim();
-
-if(request.getMethod().equals("GET")){
-	response.sendRedirect("edit.jsp?deptno="+param1);
-	return;
-}
-MongoClient client=null;
-
-try{
-	client=new MongoClient();
-/*	client.getDatabase("testDB")
+	int deptno = Integer.parseInt(param1);
+	String dname = param2.trim();
+	String loc = param3.trim();
+	
+	if (request.getMethod().equals("GET")) {
+		response.sendRedirect("edit.jsp?deptno=" + param1);
+		return;
+	}
+	MongoClient client = null;
+	
+	try {
+		client = new MongoClient();
+		/*	client.getDatabase("testDB")
 		.getCollection("dept02")
 			.updateOne(
 					new Document().append("_id",deptno)
@@ -35,18 +35,13 @@ try{
 							)
 					,new UpdateOptions().upsert(true)
 					);
-*/
-	client.getDatabase("testDB")
-	.getCollection("dept02")
-		.updateOne(
-				Filters.eq("_id",deptno),
-				new Document("$set",new Document("dname",dname).append("loc",loc)));
-}finally{
-	client.close();
-}
-
-
-
+		*/
+		client.getDatabase("testDB").getCollection("dept02")
+			.updateOne(Filters.eq("_id", deptno),
+		new Document("$set", new Document("dname", dname).append("loc", loc)));
+	} finally {
+		client.close();
+	}
 
 response.sendRedirect("list.jsp");
 %>
