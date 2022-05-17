@@ -9,18 +9,9 @@
 </head>
 <body bgcolor="#dddddd">
 <table width="800" align="center" bgcolor="white">
-	<!-- 
-		<tr>
-			<td><img alt="" src="/web05/imgs/logo.jpg"></td>
-		</tr>
-	 -->
 		<tr>
 			<td bgcolor="gray" align="center">
   				<a href="list.jsp?p=1">[LIST]</a>
-<!--
-				<a href="dept/list.jsp">[DEPT]</a>
-				<a href="emp/list.jsp">[EMP]</a>
--->
 			</td>
 		</tr>
 		<tr>
@@ -41,7 +32,6 @@
 		MongoCollection<Document> coll = null;
 		int p=1;
 		int select=0;
-		int count =10;
 		long c= 100L ;
 		try{
 			p = Integer.parseInt(request.getParameter("p"));
