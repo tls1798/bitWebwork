@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style rel="stylesheet" type="text/css">
+        
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+    <!-- <script type="text/javascript" src="js/jquery-ui.min.js"></script> -->
+    <script type="text/javascript">
+        var div;
+        $(function(){
+          var div=$('#target>div').bxSlider({
+                slideWidth:600,
+                minSlides:1,
+                maxSlides:1,
+                moveSlides:1,
+                // controls:false,
+                pager:false
+                // auto:true
+            })
+            $('#target>ul img').height(130);
+            $('#target>ul').bxSlider({
+                slideWidth:600,
+                minSlides:3,
+                maxSlides:3,
+                moveSlides:1,
+                auto:true,
+                onSliderLoad:function(a){
+                    div.goToSlide(a);
+                },
+                onSlideNext:function(a,b,c){
+                    div.goToSlide(c);
+                },
+                onSlidePrev:function(a,b,c){
+                    div.goToSlide(c);
+                }
+            })
+            
+            
+        });
+    </script>
+</head>
+<body>
+    <h2>안좋은 패턴</h2>
+    <div id="target">
+        <div>
+            <div><img src="https://dummyimage.com/600x400/555/fff&text=01" alt=""></div>
+            <div><img src="https://dummyimage.com/600x400/555/fff&text=02" alt=""></div>
+            <div><img src="https://dummyimage.com/600x400/555/fff&text=03" alt=""></div>
+            <div><img src="https://dummyimage.com/600x400/555/fff&text=04" alt=""></div>
+            <div><img src="https://dummyimage.com/600x400/555/fff&text=05" alt=""></div>
+            <div><img src="https://dummyimage.com/600x400/555/fff&text=06" alt=""></div>
+        </div>
+        <ul>
+            <li><img src="https://dummyimage.com/600x400/555/fff&text=01" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/555/fff&text=02" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/555/fff&text=03" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/555/fff&text=04" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/555/fff&text=05" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/555/fff&text=06" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>
