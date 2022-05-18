@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<nav class="navbar">
+        <div class="logo"><a href="<%=path %>/index.jsp">logo</a></div>
+        <ol class="menus">
+            <li><a href="<%=path %>/index.jsp">HOME</a></li>
+            <li><a href="<%=path %>/list.jsp">공지</a></li>
+            <%-- <li><a href="<%=path %>/todo.jsp">ToDo</a></li> --%>
+        </ol>
+        <!-- <li class="icon"><a href="#">icon</a></li> -->
+        <!-- <div class="icon"><a href="#">icon</a></div> -->
+        <div class="icon">
+	        <i class="bi bi-file-person"></i>
+        </div>
+        <!-- </a href="#" class="toggle_menu">menu</a> -->
+        <i class="bi bi-list"></i>
+    </nav>

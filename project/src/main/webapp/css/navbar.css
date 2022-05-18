@@ -1,0 +1,132 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.navbar{
+    /* height: 60px; */
+    /* border-bottom: 1px solid gray; */
+    display: flex;
+/*  background-color: white; */
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 5px 15px; */
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 3000;
+}
+.navbar_fixed{
+	background-color: black;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+}
+.navbar a{
+    text-decoration: none;
+    color: white;
+}
+.logo{
+    font-size: 24px;
+    margin: 5px 15px;
+}
+.logo>a{
+    color: white;
+    text-decoration: none;
+}
+.menus{
+    display: flex;
+    list-style: none;
+    padding: 0px;
+}
+.menus li{
+    height: 100%;
+    padding: 0px 8px;
+}
+.menus li>a{
+    padding: 8px 12px;
+    text-align: center;
+    margin-top: 0px;
+}
+.menus li>a:hover{
+    background-color: lightblue;
+    border-radius: 5px;
+}
+.icon{
+    height: 100%;
+    display: flex;
+    padding: 8px 8px;
+    margin: 5px 7px;
+    list-style: none;
+}
+.icon>i{
+	color: white;
+}
+.icon>li>i,.icon>li{
+	color: white;
+	padding: 5px;
+}
+.icon>li>i:hover{
+    background-color: lightblue;
+    border-radius: 5px;
+}
+
+nav>.bi{
+    position: absolute;
+    display: none;
+    font-family: bootstrap-icons;
+    font-size: 25px;
+    color: white;
+    top: 15px;
+    right: 15px;
+}
+
+nav>.bi:hover{
+    background-color: lightblue;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 625px){
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: black;
+        /* padding: 8px 24px; */
+    }
+
+    .logo{
+        height: 100%;
+        margin: 0px;
+        padding: 11px 15px;
+    }
+    .menus{
+        /* display: none; */
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        margin: 0px ;
+    }
+
+    .menus li{
+        padding: 0px;
+    }
+    .menus li>a{
+        width: 100%;
+        padding: 15px 20px;
+        text-align: left;
+        display: block;
+    }
+    .icon{
+        display: none;
+        margin: 10px 15px;
+        padding: 8px 0px;
+        text-align: left;
+    }
+    .icon>i{
+    	font-size: 20pt;
+    }
+    nav>.bi{
+        display: flex;
+    }
+    .open{
+        display: flex;
+    }
+}
