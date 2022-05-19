@@ -38,13 +38,18 @@ $(function(){
 							<a href="../dept/list.html" class="btn">DEPT</a>						
 						</p>
 						<p class="navbar-text navbar-right">
-						<%if(session.getAttribute("result")!=null){
-							out.print(session.getAttribute("id").toString()+"님 로그인 중");
+						<%
+							if(session.getAttribute("result")!=null){
+											out.print(session.getAttribute("id").toString()+"님 로그인 중");
 						%>
 							<a href="../login/index.html" class="btn">LOGOUT</a>
-						<%}else{ %>
+						<%
+							}else{
+						%>
 							<a href="../login/index.html" class="btn">LOGIN</a>
-						<%} %>
+						<%
+							}
+						%>
 						</p>
 					</div>
 				</nav>
@@ -57,7 +62,7 @@ $(function(){
 					<h2>EMP Edit PAGE <small>수정페이지</small></h2>
 				</div>
 				<%
-				com.bit.model.EmpDto bean=(com.bit.model.EmpDto)request.getAttribute("emp");
+					com.bit.model.EmpDto bean=(com.bit.model.EmpDto)request.getAttribute("emp");
 				%>
 				
 				<form method="post">

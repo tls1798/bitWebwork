@@ -34,13 +34,18 @@
 							<a href="../dept/list.html" class="btn">DEPT</a>						
 						</p>
 						<p class="navbar-text navbar-right">
-						<%if(session.getAttribute("result")!=null){
-							out.print(session.getAttribute("id").toString()+"님 로그인 중");
+						<%
+							if(session.getAttribute("result")!=null){
+											out.print(session.getAttribute("id").toString()+"님 로그인 중");
 						%>
 							<a href="../login/index.html" class="btn">LOGOUT</a>
-						<%}else{ %>
+						<%
+							}else{
+						%>
 							<a href="../login/index.html" class="btn">LOGIN</a>
-						<%} %>
+						<%
+							}
+						%>
 						</p>
 					</div>
 				</nav>
@@ -66,9 +71,9 @@
 					</thead>
 					<tbody>
 					<%
-					List<com.bit.model.EmpDto> list = null; 
-					list = (java.util.List<com.bit.model.EmpDto>)request.getAttribute("list");
-					for(com.bit.model.EmpDto bean:list){
+						List<com.bit.model.EmpDto> list = null; 
+								list = (java.util.List<com.bit.model.EmpDto>)request.getAttribute("list");
+								for(com.bit.model.EmpDto bean:list){
 					%>
 						<tr>
 							<td><a href="detail.html?idx=<%=bean.getEmpno() %>"><%=bean.getEmpno() %></a></td>
