@@ -40,6 +40,7 @@ public class DetailController extends HttpServlet {
 	
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		BufferedReader br=new BufferedReader(new InputStreamReader(req.getInputStream()));
 		String msg=br.readLine();
 		EmpDao dao=new EmpDao();

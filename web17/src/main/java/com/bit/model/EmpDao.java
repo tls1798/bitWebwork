@@ -87,8 +87,6 @@ public class EmpDao {
 	}*/	
 	
 	public EmpDto selectOne(String idx) {
-//		
-		
 		try {
 			client=new MongoClient(addr);
 			MongoDatabase db=client.getDatabase("testDB");
