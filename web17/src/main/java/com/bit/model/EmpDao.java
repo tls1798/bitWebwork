@@ -136,8 +136,21 @@ public class EmpDao {
 			coll.updateOne(filter, update2);
 		} finally {
 			
-		}
+		}	
+	}
+	
+	public void deleteOne(String json) {
+		try {
+			client=new MongoClient(addr);
+			MongoDatabase db=client.getDatabase("testDB");
+			MongoCollection<Document> coll = db.getCollection("emp");
 		
+			Bson filter=BsonDocument.parse(json);
+			coll.deleteOne(filter);
+
+		} finally {
+			if(client!=null) client.close();
+		}
 	}
 	
 }
