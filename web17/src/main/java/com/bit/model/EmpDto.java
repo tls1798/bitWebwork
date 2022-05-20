@@ -32,8 +32,9 @@ public class EmpDto {
 	public List getItem() {
 		return item;
 	}
-	public void setItems(List item) {
+	public void setItem(List item) {
 		this.item = item;
 	}
+	
 	
 }
