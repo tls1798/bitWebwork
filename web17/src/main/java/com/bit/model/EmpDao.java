@@ -2,25 +2,48 @@ package com.bit.model;
 
 import java.util.*;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.*;
 import org.bson.*;
 
 public class EmpDao {
-	public List<?> selectAll() {
-		List<?>list = new ArrayList<>();
-		String addr ="localhost:27017";
-		MongoClient client =null;
+	String addr ="localhost:27017";
+	MongoClient client =null;
+	
+	public void insertOne(int empno, String ename) {
+		try {
+			client=new MongoClient(addr);
+			MongoDatabase db=client.getDatabase("testDB");
+			MongoCollection<Document> coll=db.getCollection("emp");
+			
+//			BasicDBObject doc = new BasicDBObject();
+//			doc.append("empno", empno);
+//			doc.append("ename", ename);
+			
+			Document doc=new Document();
+			doc.append("empno", empno);
+			doc.append("ename", ename);
+			coll.insertOne(doc);
+		} finally {
+			if(client!=null) client.close();
+		}
+	}
+	
+	public List<Map<String, Object>> selectAll() {
+		List<Map<String, Object>>list = new ArrayList<>();
 		try {
 			client=new MongoClient(addr);
 			MongoDatabase db = client.getDatabase("testDB");
-			MongoCollection<Document> rs= db.getCollection("sales");
+			MongoCollection<Document> rs= db.getCollection("emp");
 			MongoCursor<Document> cur=rs.find().iterator();
 			while(cur.hasNext()) {
+				Map<String, Object> bean=new HashMap<String, Object>();
 				Document doc=cur.next();
-				System.out.println(doc);
+				bean.put("_id", doc.get("_id"));
+				bean.put("empno", doc.get("empno"));
+				bean.put("ename", doc.get("ename"));
+				list.add(bean);
 			}
 		} finally {
 			if(client!=null) client.close();
