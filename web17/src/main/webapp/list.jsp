@@ -22,13 +22,13 @@
 		<h4 class="list-group-item-heading">List group</h4>
 		<p class="list-group-item-text">item</p>
 	</span>
-	<%@page import="java.util.*" %>
+	<%@page import="java.util.*, com.bit.model.*" %>
 	<%
-	for (Map<String,Object> bean : (List<Map<String,Object>>)request.getAttribute("list")) {
+	for(EmpDto bean:(List<EmpDto>)request.getAttribute("list")){
 	%>
-	<a href="detail.html?idx=<%=bean.get("idx") %>" class="list-group-item">
-		<h4 class="list-group-item-heading"><%=bean.get("ename")%></h4>
-		<p class="list-group-item-text"><%=bean.get("empno") %></p>
+	<a href="detail.html?idx=<%=bean.getId() %>" class="list-group-item">
+		<h4 class="list-group-item-heading"><%=bean.getEname()%> (<%=bean.getEmpno() %>)</h4>
+		<p class="list-group-item-text"><%=bean.getItem() %></p>
 	</a>
 	<%
 	}
