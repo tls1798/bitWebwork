@@ -22,6 +22,9 @@ app.use(cookieParser());
 // routting
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/mysql', require('./routes/mysql'));
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
