@@ -45,4 +45,19 @@ router.get('/:empno',function(req,res){
     })
 })
 
+router.put('/:empno', function(req, res){
+    pool.query('update emp set ename=?, sal=? where empno=?',
+        [req.body.ename,parseInt(req.body.sal), parseInt(req.body.empno)],
+        function(err){
+            if(err) throw err;
+            res.redirect('./');
+        })
+})
+
+router.delete('/:empno',function(req,res){
+    pool.query('delete from emp where empno=?',[parseInt(req.params.empno)],function(){
+            res.redirect('./');
+    })
+})
+
 module.exports=router;
